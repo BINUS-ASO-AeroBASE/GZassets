@@ -1,0 +1,54 @@
+[0.009s] Invoking command in '/home/aerobase/drone_model/src/build/drone_description': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/aerobase/drone_model/src/drone_description -DCMAKE_INSTALL_PREFIX=/home/aerobase/drone_model/src/install/drone_description
+[0.014s] [33mCMake Warning (dev) in CMakeLists.txt:
+[0.014s]   No project() command is present.  The top-level CMakeLists.txt file must
+[0.014s]   contain a literal, direct call to the project() command.  Add a line of
+[0.014s]   code such as
+[0.014s] 
+[0.014s]     project(ProjectName)
+[0.014s] 
+[0.014s]   near the top of the file, but after cmake_minimum_required().
+[0.014s] 
+[0.014s]   CMake is pretending there is a "project(Project)" command on the first
+[0.014s]   line.
+[0.014s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[0.014s] [0m
+[0.014s] [33mCMake Warning (dev) in CMakeLists.txt:
+[0.015s]   cmake_minimum_required() should be called prior to this top-level project()
+[0.015s]   call.  Please see the cmake-commands(7) manual for usage documentation of
+[0.015s]   both commands.
+[0.015s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[0.015s] [0m
+[0.054s] -- The C compiler identification is GNU 13.2.0
+[0.101s] -- The CXX compiler identification is GNU 13.2.0
+[0.116s] -- Detecting C compiler ABI info
+[0.188s] -- Detecting C compiler ABI info - done
+[0.196s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.196s] -- Detecting C compile features
+[0.196s] -- Detecting C compile features - done
+[0.204s] -- Detecting CXX compiler ABI info
+[0.279s] -- Detecting CXX compiler ABI info - done
+[0.287s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.287s] -- Detecting CXX compile features
+[0.288s] -- Detecting CXX compile features - done
+[0.291s] -- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.388s] -- Found Python3: /usr/local/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[0.464s] -- Found xacro: 2.0.11 (/opt/ros/jazzy/share/xacro/cmake)
+[0.464s] [31mCMake Error at /opt/ros/jazzy/share/ament_cmake_core/cmake/core/ament_package.cmake:52 (message):
+[0.464s]   ament_package() PROJECT_NAME is set to 'Project', which is not a valid
+[0.464s]   project name.  You must call project() before calling ament_package().
+[0.464s] Call Stack (most recent call first):
+[0.464s]   CMakeLists.txt:8 (ament_package)
+[0.464s] 
+[0.464s] [0m
+[0.464s] [31mCMake Error in CMakeLists.txt:
+[0.465s]   No cmake_minimum_required command is present.  A line of code such as
+[0.465s] 
+[0.465s]     cmake_minimum_required(VERSION 3.28)
+[0.465s] 
+[0.465s]   should be added at the top of the file.  The version specified may be lower
+[0.465s]   if you wish to support older CMake versions for this project.  For more
+[0.465s]   information run "cmake --help-policy CMP0000".
+[0.465s] 
+[0.465s] [0m
+[0.465s] -- Configuring incomplete, errors occurred!
+[0.468s] Invoked command in '/home/aerobase/drone_model/src/build/drone_description' returned '1': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/aerobase/drone_model/src/drone_description -DCMAKE_INSTALL_PREFIX=/home/aerobase/drone_model/src/install/drone_description

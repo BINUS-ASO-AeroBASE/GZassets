@@ -1,0 +1,2 @@
+/home/aerobase/drone_model/src/build/drone_description/CMakeFiles/edit_cache.dir
+/home/aerobase/drone_model/src/build/drone_description/CMakeFiles/rebuild_cache.dir
