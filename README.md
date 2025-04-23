@@ -14,7 +14,20 @@ The drone is modeled for integration with **Gazebo Sim** and **ROS 2 Jazzy**, su
 
 ## 📁 Folder Structure
 
-drone_model/ ├── launch/ # ROS 2 launch files ├── meshes/ # STL models for drone components ├── urdf/ or sdf/ # Drone description in URDF or SDF ├── rviz/ # RViz configuration files ├── worlds/ # Gazebo world files for testing ├── config/ # Sensor configs or camera calibration └── README.md
+drone_model/
+├── drone_model/         # workspace or subproject directory
+├── install/             # colcon installation directory (build output)
+├── log/                 # colcon log directory
+├── materials/           # Gazebo material scripts/textures
+├── meshes/              # STL or DAE 3D models for the drone
+├── ~p/                  # Temporary or backup folder (you may want to rename/remove)
+├── src/                 # ROS 2 source packages
+├── urdf/                # URDF files for drone structure
+├── drone.urdf           # Top-level drone URDF file
+├── LICENSE              # License file (e.g. MIT)
+├── model.config         # Gazebo model configuration file
+├── model.sdf            # SDF file for Gazebo integration
+└── README.md            # Project documentation
 
 
 ## 🚀 Getting Started
