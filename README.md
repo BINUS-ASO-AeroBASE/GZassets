@@ -8,8 +8,8 @@ The drone is modeled for integration with **Gazebo Sim** and **ROS 2 Jazzy**, su
 
 - ✅ Full SDF/URDF drone model
 - ✅ Meshes for frame, propellers, and camera mounts
-- ✅ Sensor configurations (camera, IMU, LiDAR-ready)
-- ✅ Coordinate transform trees (`tf`)
+- ✅ Sensor configurations (camera, IMU, LiDAR-ready) **NOT IMPLEMENTED**
+- ✅ Coordinate transform trees (`tf`) **NOT IMPLEMENTED**
 - ✅ Launch files for testing in simulation
 
 ## 📁 Folder Structure
@@ -49,26 +49,41 @@ Build the Workspace
 cd ~/your_ros2_ws
 colcon build
 source install/setup.bash
-
+```
 Launch the Drone in Gazebo
-
+```
 ros2 launch drone_description bringup.launch.py
-
+```
 You can also spawn the drone in custom environments via:
-
+```
 ros2 launch drone_description spawn_drone.launch.py world:=your_custom_world
+```
 
-📷 Sensors Included
-Sensor	Type	Interface
-IMU	Simulated	/imu
-Camera (Front)	RGB	/image_raw
-LiDAR (Optional)	2D/3D	/scan
-🛠️ Development Team
 
-BINUS ASO School of Engineering
-AeroBASE Team – KRTI 2025 Division
-📍 BINUS University
+## 📷 Sensors Included **NOT IMPLEMENTED YET**
+
+| Sensor         | Type      | Interface     |
+|----------------|-----------|---------------|
+| IMU            | Simulated | `/imu`        |
+| Camera (Front) | RGB       | `/image_raw`  |
+| LiDAR (Optional)| 2D/3D     | `/scan`       |
+
+---
+
+## 🛠️ Development Team
+
+- **Gareth** – [github.com/theonegareth](https://github.com/theonegareth)
+
+BINUS ASO School of Engineering  
+**AeroBASE – Research & Development Division**  
+
+📍 BINUS University  
 ✉️ Contact: aerobase.team@gmail.com
-📄 License
 
-MIT License. Feel free to use or modify for educational or non-commercial KRTI-related work.
+---
+
+## 📄 License
+
+**MIT License**  
+Feel free to use or modify this project for educational or non-commercial KRTI-related work.
+
