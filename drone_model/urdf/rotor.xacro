@@ -1,0 +1,22 @@
+<xacro:macro name="rotor" params="name parent position mesh">
+    <link name="${name}">
+        <visual>
+            <geometry>
+                <mesh filename="package://drone_description/meshes/${mesh}" scale="0.5 0.5 0.5"/>
+            </geometry>
+            <material>
+                <color rgba="0.0 0.0 1.0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://drone_description/meshes/${mesh}" scale="0.5 0.5 0.5"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="${name}_joint" type="fixed">
+        <parent link="${parent}"/>
+        <child link="${name}"/>
+        <origin xyz="${position} 0 0 0"/>
+    </joint>
+</xacro:macro>

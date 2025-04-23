@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<robot name="quadcopter" xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <!-- Base link (main body of the quadcopter) -->
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <mesh filename="package://drone_description/meshes/base_link.STL" scale="1 1 1"/>
+            </geometry>
+            <material>
+                <color rgba="0.7 0.7 0.7 1"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://drone_description/meshes/base_link.STL" scale="1 1 1"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="1.5"/>
+            <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
+        </inertial>
+    </link>
+
+    <!-- Add propeller links -->
+    <xacro:include filename="$(find drone_description)/urdf/rotor.xacro"/>
+    <xacro:rotor name="front_left" parent="base_link" position="0.2 0.2 0.05" mesh="link1.STL"/>
+    <xacro:rotor name="front_right" parent="base_link" position="0.2 -0.2 0.05" mesh="link2.STL"/>
+    <xacro:rotor name="rear_left" parent="base_link" position="-0.2 0.2 0.05" mesh="link3.STL"/>
+    <xacro:rotor name="rear_right" parent="base_link" position="-0.2 -0.2 0.05" mesh="link4.STL"/>
+
+</robot>
