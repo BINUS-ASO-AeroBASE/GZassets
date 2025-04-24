@@ -2,7 +2,7 @@
   <model name='quadcopter'>
     <link name='base_link'>
       <inertial>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0.25 -1.585 0 0</pose>
         <mass>1.5</mass>
         <inertia>
           <ixx>0.10000000000000001</ixx>
@@ -13,15 +13,25 @@
           <izz>0.10000000000000001</izz>
         </inertia>
       </inertial>
+      <visual name="visual">
+        <pose>0 0 0.25 -1.585 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>file:///home/aerobase/hexadrone/models/hexadrone_model/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
       <collision name='base_link_collision'>
-        <pose>0 0 0.05 -1.585 0 0</pose>
+        <pose>0 0 0.25 -1.585 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file:///home/aerobase/hexadrone/models/meshes/base_link.STL</uri>
+            <uri>file:///home/aerobase/hexadrone/models/hexadrone_model/meshes/base_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
+    </link>
 
     <!-- sensors -->
     <link name="imu_link">
@@ -88,7 +98,7 @@
         <geometry>
           <mesh>
             <scale>0.7 0.7 0.7</scale>
-            <uri>file:///home/aerobase/hexadrone/models/meshes/iris_prop_cw.dae</uri>
+            <uri>file:///home/aerobase/hexadrone/models/hexadrone_model/meshes/iris_prop_cw.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -99,9 +109,9 @@
       </visual>
     </link>
     <joint name="motor3_fl_joint" type="revolute">
-      <pose relative_to="tibia_fl_link">0.03 0 -0.03 0 1.570796 0</pose>
+      <pose relative_to="base_link">0.03 0 -0.03 0 1.570796 0</pose>
       <child>motor3_fl_link</child>
-      <parent>tibia_fl_link</parent>
+      <parent>base_link</parent>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -140,7 +150,7 @@
         <geometry>
           <mesh>
             <scale>0.7 0.7 0.7</scale>
-            <uri>file:///home/aerobase/hexadrone/models/meshes/iris_prop_ccw.dae</uri>
+            <uri>file:///home/aerobase/hexadrone/models/hexadrone_model/meshes/iris_prop_ccw.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -151,9 +161,9 @@
       </visual>
     </link>
     <joint name="motor5_fr_joint" type="revolute">
-      <pose relative_to="tibia_fr_link">0.03 0 -0.03 0 1.570796 0</pose>
+      <pose relative_to="base_link">0.03 0 -0.03 0 1.570796 0</pose>
       <child>motor5_fr_link</child>
-      <parent>tibia_fr_link</parent>
+      <parent>base_link</parent>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -192,7 +202,7 @@
         <geometry>
           <mesh>
             <scale>0.7 0.7 0.7</scale>
-            <uri>file:///home/aerobase/hexadrone/models/meshes/iris_prop_cw.dae</uri>
+            <uri>file:///home/aerobase/hexadrone/models/hexadrone_model/meshes/iris_prop_cw.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -203,9 +213,9 @@
       </visual>
     </link>
     <joint name="motor6_bl_joint" type="revolute">
-      <pose relative_to="tibia_bl_link">0.03 0 -0.03 0 1.570796 0</pose>
+      <pose relative_to="base_link">0.03 0 -0.03 0 1.570796 0</pose>
       <child>motor6_bl_link</child>
-      <parent>tibia_bl_link</parent>
+      <parent>base_link</parent>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -244,7 +254,7 @@
         <geometry>
           <mesh>
             <scale>0.7 0.7 0.7</scale>
-            <uri>file:///home/aerobase/hexadrone/models/meshes/iris_prop_ccw.dae</uri>
+            <uri>file:///home/aerobase/hexadrone/models/hexadrone_model/meshes/iris_prop_ccw.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -255,9 +265,9 @@
       </visual>
     </link>
     <joint name="motor4_br_joint" type="revolute">
-      <pose relative_to="tibia_br_link">0.03 0 -0.03 0 1.570796 0</pose>
+      <pose relative_to="base_link">0.03 0 -0.03 0 1.570796 0</pose>
       <child>motor4_br_link</child>
-      <parent>tibia_br_link</parent>
+      <parent>base_link</parent>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -296,7 +306,7 @@
         <geometry>
           <mesh>
             <scale>0.7 0.7 0.7</scale>
-            <uri>file:///home/aerobase/hexadrone/models/meshes/iris_prop_ccw.dae</uri>
+            <uri>file:///home/aerobase/hexadrone/models/hexadrone_model/meshes/iris_prop_ccw.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -307,9 +317,9 @@
       </visual>
     </link>
     <joint name="motor2_ml_joint" type="revolute">
-      <pose relative_to="tibia_ml_link">0.03 0 -0.03 0 1.570796 0</pose>
+      <pose relative_to="base_link">0.03 0 -0.03 0 1.570796 0</pose>
       <child>motor2_ml_link</child>
-      <parent>tibia_ml_link</parent>
+      <parent>base_link</parent>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -348,7 +358,7 @@
         <geometry>
           <mesh>
             <scale>0.7 0.7 0.7</scale>
-            <uri>file:///home/aerobase/hexadrone/models/meshes/iris_prop_cw.dae</uri>
+            <uri>file:///home/aerobase/hexadrone/models/hexadrone_model/meshes/iris_prop_cw.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -359,9 +369,9 @@
       </visual>
     </link>
     <joint name="motor1_mr_joint" type="revolute">
-      <pose relative_to="tibia_mr_link">0.03 0 -0.03 0 1.570796 0</pose>
+      <pose relative_to="base_link">0.03 0 -0.03 0 1.570796 0</pose>
       <child>motor1_mr_link</child>
-      <parent>tibia_mr_link</parent>
+      <parent>base_link</parent>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -373,44 +383,5 @@
         </dynamics>
       </axis>
     </joint>
-    
-    <!-- Gimbal inclusion -->
-    <include>
-      <uri>model://gimbal_small_3d</uri>
-      <name>gimbal</name>
-      <pose degrees="true">0 -0.01 -0.124923 90 0 90</pose>
-    </include>
-
-    <joint name="gimbal_joint" type="revolute">
-      <parent>quadcopter::base_link</parent>
-      <child>gimbal::base_link</child>
-      <axis>
-        <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-        </limit>
-        <xyz>0 0 1</xyz>
-      </axis>
-    </joint>
-
-    <!-- Gimbal joint position controllers -->
-    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
-      <joint_name>gimbal::roll_joint</joint_name>
-      <topic>/gimbal/cmd_roll</topic>
-      <p_gain>2</p_gain>
-    </plugin>
-
-    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
-      <joint_name>gimbal::pitch_joint</joint_name>
-      <topic>/gimbal/cmd_pitch</topic>
-      <p_gain>2</p_gain>
-    </plugin>
-
-    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
-      <joint_name>gimbal::yaw_joint</joint_name>
-      <topic>/gimbal/cmd_yaw</topic>
-      <p_gain>2</p_gain>
-    </plugin>
-
   </model>
 </sdf>
