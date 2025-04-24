@@ -1,9 +1,0 @@
-/home/aerobase/drone_model/build/drone_description/CMakeFiles/uninstall.dir
-/home/aerobase/drone_model/build/drone_description/CMakeFiles/drone_description_uninstall.dir
-/home/aerobase/drone_model/build/drone_description/CMakeFiles/test.dir
-/home/aerobase/drone_model/build/drone_description/CMakeFiles/edit_cache.dir
-/home/aerobase/drone_model/build/drone_description/CMakeFiles/rebuild_cache.dir
-/home/aerobase/drone_model/build/drone_description/CMakeFiles/list_install_components.dir
-/home/aerobase/drone_model/build/drone_description/CMakeFiles/install.dir
-/home/aerobase/drone_model/build/drone_description/CMakeFiles/install/local.dir
-/home/aerobase/drone_model/build/drone_description/CMakeFiles/install/strip.dir
