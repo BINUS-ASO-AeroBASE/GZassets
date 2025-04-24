@@ -18,139 +18,48 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file:///home/aerobase/drone_model/src/drone_description_backup/meshes/base_link.STL</uri>
+            <uri>file:///home/aerobase/hexadrone/models/meshes/base_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
 
-      <collision name='base_link_fixed_joint_lump__front_left_collision_1'>
-        <pose>0.20000000000000001 0.20000000000000001 0.050000000000000003 0 0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>0.5 0.5 0.5</scale>
-            <uri>file:///home/aerobase/drone_model/src/drone_description_backup/meshes/rotor1.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-      <collision name='base_link_fixed_joint_lump__front_right_collision_2'>
-        <pose>0.20000000000000001 -0.20000000000000001 0.050000000000000003 0 0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>0.5 0.5 0.5</scale>
-            <uri>file:///home/aerobase/drone_model/src/drone_description_backup/meshes/rotor2.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-      <collision name='base_link_fixed_joint_lump__rear_left_collision_3'>
-        <pose>-0.20000000000000001 0.20000000000000001 0.050000000000000003 0 0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>0.5 0.5 0.5</scale>
-            <uri>file:///home/aerobase/drone_model/src/drone_description_backup/meshes/rotor3.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-      <collision name='base_link_fixed_joint_lump__rear_right_collision_4'>
-        <pose>-0.20000000000000001 -0.20000000000000001 0.050000000000000003 0 0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>0.5 0.5 0.5</scale>
-            <uri>file:///home/aerobase/drone_model/src/drone_description_backup/meshes/rotor4.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-      <visual name='base_link_visual'>
-        <pose>0 0 0.05 -1.585 0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>file:///home/aerobase/drone_model/src/drone_description_backup/meshes/base_link.STL</uri>
-          </mesh>
-        </geometry>
-        <material>
-          <diffuse>0.875 0.875 0.875 1</diffuse>
-          <ambient>0.875 0.875 0.875 1</ambient>
-        </material>
-      </visual>
-      <visual name='base_link_fixed_joint_lump__front_left_visual_1'>
-        <pose>0.2 0.2 0 0 0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>0.5 0.5 0.5</scale>
-            <uri>file:///home/aerobase/drone_model/src/drone_description_backup/meshes/rotor1.STL</uri>
-          </mesh>
-        </geometry>
-        <material>
-          <diffuse>0 0 1 1</diffuse>
-          <ambient>0 0 1 1</ambient>
-        </material>
-      </visual>
-      <visual name='base_link_fixed_joint_lump__front_right_visual_2'>
-        <pose>0.2 -0.2 0 0 0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>0.5 0.5 0.5</scale>
-            <uri>file:///home/aerobase/drone_model/src/drone_description_backup/meshes/rotor2.STL</uri>
-          </mesh>
-        </geometry>
-        <material>
-          <diffuse>0 0 1 1</diffuse>
-          <ambient>0 0 1 1</ambient>
-        </material>
-      </visual>
-      <visual name='base_link_fixed_joint_lump__rear_left_visual_3'>
-        <pose>-0.2 0.2 0 0 0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>0.5 0.5 0.5</scale>
-            <uri>file:///home/aerobase/drone_model/src/drone_description_backup/meshes/rotor3.STL</uri>
-          </mesh>
-        </geometry>
-        <material>
-          <diffuse>0 0 1 1</diffuse>
-          <ambient>0 0 1 1</ambient>
-        </material>
-      </visual>
-      <visual name='base_link_fixed_joint_lump__rear_right_visual_4'>
-        <pose>-0.2 -0.2 0 0 0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>0.5 0.5 0.5</scale>
-            <uri>file:///home/aerobase/drone_model/src/drone_description_backup/meshes/rotor4.STL</uri>
-          </mesh>
-        </geometry>
-        <material>
-          <diffuse>0 0 1 1</diffuse>
-          <ambient>0 0 1 1</ambient>
-        </material>
-      </visual>
+    <!-- sensors -->
+    <link name="imu_link">
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.15</mass>
+        <inertia>
+          <ixx>0.00002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00002</iyy>
+          <iyz>0</iyz>
+          <izz>0.00002</izz>
+        </inertia>
+      </inertial>
+      <sensor name="imu_sensor" type="imu">
+        <pose>0 0 0 3.141593 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
+      </sensor>
     </link>
-
-    <!-- Arm joints -->
-    <frame name='front_left_joint' attached_to='base_link'>
-      <pose>0.20000000000000001 0.20000000000000001 0.050000000000000003 0 0 0</pose>
-    </frame>
-    <frame name='front_left' attached_to='front_left_joint'>
-      <pose>0 0 0 0 0 0</pose>
-    </frame>
-    <frame name='front_right_joint' attached_to='base_link'>
-      <pose>0.20000000000000001 -0.20000000000000001 0.050000000000000003 0 0 0</pose>
-    </frame>
-    <frame name='front_right' attached_to='front_right_joint'>
-      <pose>0 0 0 0 0 0</pose>
-    </frame>
-    <frame name='rear_left_joint' attached_to='base_link'>
-      <pose>-0.20000000000000001 0.20000000000000001 0.050000000000000003 0 0 0</pose>
-    </frame>
-    <frame name='rear_left' attached_to='rear_left_joint'>
-      <pose>0 0 0 0 0 0</pose>
-    </frame>
-    <frame name='rear_right_joint' attached_to='base_link'>
-      <pose>-0.20000000000000001 -0.20000000000000001 0.050000000000000003 0 0 0</pose>
-    </frame>
-    <frame name='rear_right' attached_to='rear_right_joint'>
-      <pose>0 0 0 0 0 0</pose>
-    </frame>
+    <joint name="imu_joint" type="revolute">
+      <child>imu_link</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <damping>1.0</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
     
     <!-- Propeller -->
      <!-- motor 3 cw front left -->
@@ -179,7 +88,7 @@
         <geometry>
           <mesh>
             <scale>0.7 0.7 0.7</scale>
-            <uri>model://hexapod_copter/meshes/iris_prop_cw.dae</uri>
+            <uri>file:///home/aerobase/hexadrone/models/meshes/iris_prop_cw.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -231,7 +140,7 @@
         <geometry>
           <mesh>
             <scale>0.7 0.7 0.7</scale>
-            <uri>model://hexapod_copter/meshes/iris_prop_ccw.dae</uri>
+            <uri>file:///home/aerobase/hexadrone/models/meshes/iris_prop_ccw.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -283,7 +192,7 @@
         <geometry>
           <mesh>
             <scale>0.7 0.7 0.7</scale>
-            <uri>model://hexapod_copter/meshes/iris_prop_cw.dae</uri>
+            <uri>file:///home/aerobase/hexadrone/models/meshes/iris_prop_cw.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -335,7 +244,7 @@
         <geometry>
           <mesh>
             <scale>0.7 0.7 0.7</scale>
-            <uri>model://hexapod_copter/meshes/iris_prop_ccw.dae</uri>
+            <uri>file:///home/aerobase/hexadrone/models/meshes/iris_prop_ccw.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -387,7 +296,7 @@
         <geometry>
           <mesh>
             <scale>0.7 0.7 0.7</scale>
-            <uri>model://hexapod_copter/meshes/iris_prop_ccw.dae</uri>
+            <uri>file:///home/aerobase/hexadrone/models/meshes/iris_prop_ccw.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -439,7 +348,7 @@
         <geometry>
           <mesh>
             <scale>0.7 0.7 0.7</scale>
-            <uri>model://hexapod_copter/meshes/iris_prop_cw.dae</uri>
+            <uri>file:///home/aerobase/hexadrone/models/meshes/iris_prop_cw.dae</uri>
           </mesh>
         </geometry>
         <material>
