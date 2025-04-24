@@ -14,7 +14,6 @@ The drone is modeled for integration with **Gazebo Sim** and **ROS 2 Jazzy**, su
 
 ## 📁 Folder Structure
 
-
 ```plaintext
 drone_model/
 ├── drone_model/         # Workspace or subproject directory
