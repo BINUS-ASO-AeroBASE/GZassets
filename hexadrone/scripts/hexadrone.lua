@@ -126,60 +126,10 @@ Motors_dynamic:load_factors(factors)
 
 motors:set_frame_string("Hexadrone")
 
--- if doing changes in flight it is a good idea to us pcall to protect
--- the script from crashing see 'protected_call.lua' example
-
--- servo angles when robot is disarmed and resting body on the ground
-local disarmed_leg_angles = {
-  45, -90, 40, -- front right leg (coxa, femur, tibia)
- -45, -90, 40, -- front left leg (coxa, femur, tibia)
- -45, -90, 40, -- back left leg (coxa, femur, tibia)
-  45, -90, 40, -- back right leg (coxa, femur, tibia)
-      -90, 40, -- mid left leg (femur, tibia)
-      -90, 40  -- mid right leg (femur, tibia)
-}
-
-local armed_leg_angles = {
- 0, -25, -60, -- front right leg (coxa, femur, tibia)
- 0, -25, -60, -- front left leg (coxa, femur, tibia)
- 0, -25, -60, -- back left leg (coxa, femur, tibia)
- 0, -25, -60,  -- back right leg (coxa, femur, tibia)
-    -25, -60, -- mid left leg (femur, tibia)
-    -25, -60  -- mid right leg (femur, tibia)
-}
-
-local leg_servo_direction = {
-  1, -1,  1, -- front right leg (coxa, femur, tibia)
-  1,  1, -1, -- front left leg (coxa, femur, tibia)
- -1, -1,  1, -- back left leg (coxa, femur, tibia)
- -1,  1, -1, -- back right leg (coxa, femur, tibia)
-      1, -1, -- mid left leg (femur, tibia)
-      1, -1  -- mid right leg (femur, tibia)
-}
-
 function update()
 
   -- update motor mixer
   Motors_dynamic:load_factors(factors)
-
-  -- update legs
-  local leg_angles
-  if arming:is_armed() then
-    leg_angles = armed_leg_angles
-  else
-    leg_angles = disarmed_leg_angles
-  end
-
-  for i = 1, 16 do
-    -- normalised angle is in [-1, 1]
-    local norm_angle = leg_angles[i] * leg_servo_direction[i] / 90
-    -- ensure pwm is in [1000, 2000]
-    local pwm = math.floor(norm_angle * 500 + 1500)
-
-    -- Q: is index for assigned channel or absolute?
-    -- A: it is absolute (so offset for the 6 motors)
-    SRV_Channels:set_output_pwm_chan_timeout(i + 5, pwm, 1000)
-  end
 
   return update, 10
 end
