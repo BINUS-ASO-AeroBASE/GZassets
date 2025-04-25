@@ -1,5 +1,0 @@
-[0.000000] (-) TimerEvent: {}
-[0.000308] (drone_description) JobQueued: {'identifier': 'drone_description', 'dependencies': OrderedDict({'drone_description': '/home/aerobase/drone_model/src/install/drone_description'})}
-[0.000351] (drone_description) JobStarted: {'identifier': 'drone_description'}
-[0.003742] (drone_description) JobEnded: {'identifier': 'drone_description', 'rc': 1}
-[0.013992] (-) EventReactorShutdown: {}

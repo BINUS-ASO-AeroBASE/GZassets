@@ -15,19 +15,16 @@ The drone is modeled for integration with **Gazebo Sim** and **ROS 2 Jazzy**, su
 ## 📁 Folder Structure
 
 ```plaintext
-drone_model/
-├── drone_model/         # Workspace or subproject directory
-├── install/             # Colcon installation directory (build output)
-├── log/                 # Colcon log directory
-├── materials/           # Gazebo material scripts/textures
-├── meshes/              # STL or DAE 3D models for the drone
-├── src/                 # ROS 2 source packages
-├── urdf/                # URDF files for drone structure
-├── drone.urdf           # Top-level drone URDF file
+GZassets/
+├── hexadrone
+│   ├── config/
+│   ├── models/
+│   ├── scripts/
+│   ├── worlds/
+│   ├── CMakeList.txt
+│   ├── package.xml
 ├── LICENSE              # License file (e.g., MIT)
-├── model.config         # Gazebo model configuration file
-├── model.sdf            # SDF file for Gazebo integration
-└── README.md            # Project documentation
+└── README.md            # Main project documentation
 ```
 
 
@@ -67,23 +64,23 @@ ros2 launch drone_description spawn_drone.launch.py world:=your_custom_world
 |----------------|-----------|---------------|
 | IMU            | Simulated | `/imu`        |
 | Camera (Front) | RGB       | `/image_raw`  |
-| LiDAR (Optional)| 2D/3D     | `/scan`       |
+| LiDAR          | 2D/3D     | `/scan`       |
 
 ---
 
 ## 🛠️ Development Team
 
 - **Gareth** – [github.com/theonegareth](https://github.com/theonegareth)
+- **Maul** - [https://github.com/Futprodev](https://github.com/Futprodev)
 
 BINUS ASO School of Engineering  
 **AeroBASE – Research & Development Division**  
 
-📍 BINUS University  
-✉️ Contact: aerobase.team@gmail.com
+📍 BINUS ASO School of Engineering
 
 ---
 
-## 📄 License
+## 📄 [License](LICENSE)
 
 **MIT License**  
 Feel free to use or modify this project for educational or non-commercial KRTI-related work.
