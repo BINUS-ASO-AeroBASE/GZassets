@@ -84,7 +84,7 @@ BINUS ASO School of Engineering
 
 ---
 
-## 📄 [License](License)
+## 📄 [License](LICENSE)
 
 **MIT License**  
 Feel free to use or modify this project for educational or non-commercial KRTI-related work.
