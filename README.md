@@ -1,60 +1,91 @@
-# Hexadrone
+# Gazebo Simulation Drone Assets — KRTI 2025
 
-Hexadrone is a 6 rotor drone made for KRTI 2025.
+This repository contains the drone model and simulation assets developed by the BINUS ASO AeroBASE team for the **Kontes Robot Terbang Indonesia (KRTI) 2025**.
 
-## Features
+## 🛩️ Overview
 
-- **Autonomous Navigation**: Intelligent pathfinding and obstacle avoidance.
-- **Real-Time Control**: Responsive manual and automated control modes.
-- **Modular Design**: Easily extendable with custom modules.
-- **Data Logging**: Comprehensive flight data recording and analysis.
+The drone is modeled for integration with **Gazebo Sim** and **ROS 2 Jazzy**, supporting both visual and physics-based simulation for autonomous flight tasks. This repository includes:
 
-## Installation
+- ✅ Full SDF/URDF drone model
+- ✅ Meshes for frame, propellers, and camera mounts
+- ✅ Sensor configurations (camera, IMU, LiDAR-ready) **NOT IMPLEMENTED**
+- ✅ Coordinate transform trees (`tf`) **NOT IMPLEMENTED**
+- ✅ Launch files for testing in simulation
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/yourusername/hexadrone.git
-    ```
-2. Navigate to the project directory:
-    ```bash
-    cd hexadrone
-    ```
-3. Install dependencies:
-    ```
-    ```
-4. Run on GZ sim:
-    ```
-    gz sim -v4 -r hexadrone_runway.sdf
-    ```
+## 📁 Folder Structure
 
-## Usage
+```plaintext
+GZassets/
+├── drone_model/         # Workspace or subproject directory
+│   ├── install/         # Colcon installation directory (build output)
+│   ├── log/             # Colcon log directory
+│   ├── materials/       # Gazebo material scripts/textures
+│   ├── meshes/          # STL or DAE 3D models for the drone
+│   ├── src/             # ROS 2 source packages
+│   ├── urdf/            # URDF files for drone structure
+│   ├── drone.urdf       # Top-level drone URDF file
+│   ├── model.config     # Gazebo model configuration file
+│   ├── model.sdf        # SDF file for Gazebo integration
+│   └── README.md        # Project documentation
+├── LICENSE              # License file (e.g., MIT)
+└── README.md            # Main project documentation
+```
 
-1. Configure the drone settings in `config.yaml`.
-2. Start the control system:
-    ```bash
-    python main.py
-    ```
-3. Follow the on-screen instructions to operate the drone.
 
-## Contributing
+## 🚀 Getting Started
 
-Contributions are welcome! Please follow these steps:
+### Requirements
 
-1. Fork the repository.
-2. Create a new branch:
-    ```bash
-    git checkout -b feature-name
-    ```
-3. Commit your changes and push the branch:
-    ```bash
-    git push origin feature-name
-    ```
-4. Open a pull request.
+- [ROS 2 Jazzy](https://docs.ros.org/en/jazzy/index.html)
+- [Gazebo Sim](https://gazebosim.org/)
+- [colcon](https://docs.ros.org/en/rolling/Tutorials/Colcon-Tutorial.html)
 
-## License
+### Clone the Repository
 
-This project is licensed under the [MIT License](LICENSE).
+```bash
+git clone https://github.com/BINUS-ASO-AeroBASE/GZassets.git
+cd GZassets
 
-## Contact
+Build the Workspace
 
-For questions or support, please contact [maulana.muammar@binus.ac.id].
+cd ~/your_ros2_ws
+colcon build
+source install/setup.bash
+```
+Launch the Drone in Gazebo
+```
+ros2 launch drone_description bringup.launch.py
+```
+You can also spawn the drone in custom environments via:
+```
+ros2 launch drone_description spawn_drone.launch.py world:=your_custom_world
+```
+
+
+## 📷 Sensors Included **NOT IMPLEMENTED YET**
+
+| Sensor         | Type      | Interface     |
+|----------------|-----------|---------------|
+| IMU            | Simulated | `/imu`        |
+| Camera (Front) | RGB       | `/image_raw`  |
+| LiDAR          | 2D/3D     | `/scan`       |
+
+---
+
+## 🛠️ Development Team
+
+- **Gareth** – [github.com/theonegareth](https://github.com/theonegareth)
+- **Maul** - [https://github.com/Futprodev](https://github.com/Futprodev)
+
+BINUS ASO School of Engineering  
+**AeroBASE – Research & Development Division**  
+
+📍 BINUS ASO School of Engineering
+
+---
+
+## 📄 [License](License)
+
+**MIT License**  
+Feel free to use or modify this project for educational or non-commercial KRTI-related work.
+
