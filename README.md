@@ -16,17 +16,13 @@ The drone is modeled for integration with **Gazebo Sim** and **ROS 2 Jazzy**, su
 
 ```plaintext
 GZassets/
-├── drone_model/         # Workspace or subproject directory
-│   ├── install/         # Colcon installation directory (build output)
-│   ├── log/             # Colcon log directory
-│   ├── materials/       # Gazebo material scripts/textures
-│   ├── meshes/          # STL or DAE 3D models for the drone
-│   ├── src/             # ROS 2 source packages
-│   ├── urdf/            # URDF files for drone structure
-│   ├── drone.urdf       # Top-level drone URDF file
-│   ├── model.config     # Gazebo model configuration file
-│   ├── model.sdf        # SDF file for Gazebo integration
-│   └── README.md        # Project documentation
+├── hexadrone
+│   ├── config/
+│   ├── models/
+│   ├── scripts/
+│   ├── worlds/
+│   ├── CMakeList.txt
+│   ├── package.xml
 ├── LICENSE              # License file (e.g., MIT)
 └── README.md            # Main project documentation
 ```
@@ -84,7 +80,7 @@ BINUS ASO School of Engineering
 
 ---
 
-## 📄 [License](License)
+## 📄 [License](LICENSE)
 
 **MIT License**  
 Feel free to use or modify this project for educational or non-commercial KRTI-related work.
