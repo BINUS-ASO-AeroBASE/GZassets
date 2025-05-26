@@ -1,9 +1,9 @@
 <sdf version='1.11'>
-  <model name='quadcopter'>
-    <link name='base_link'>
+  <model name='hexadrone'>
+    <link name="base_link">
       <inertial>
         <pose>0 0 0.25 -1.585 0 0</pose>
-        <mass>1.5</mass>
+        <mass>0.5</mass>
         <inertia>
           <ixx>0.10000000000000001</ixx>
           <ixy>0</ixy>
@@ -22,7 +22,7 @@
         </geometry>
       </visual>
 
-      <collision name='base_link_collision'>
+      <collision name="base_link_collision">
         <pose>0 0 0.25 -1.585 0 0</pose>
         <geometry>
           <mesh>
@@ -31,6 +31,43 @@
           </mesh>
         </geometry>
       </collision>
+    </link>
+
+    <!-- sensors -->
+    <link name="gps_sensor_link">
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.15</mass>
+        <inertia>
+          <ixx>0.00002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00002</iyy>
+          <iyz>0</iyz>
+          <izz>0.00002</izz>
+        </inertia>
+      </inertial>
+      <!-- GPS sensor -->
+      <sensor name="gps_sensor" type="gps">
+        <pose>0 0 0 0 0 0</pose>
+        <update_rate>5</update_rate>
+        <gps>
+          <position_sensing>
+            <horizontal>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>0.01</stddev>
+              </noise>
+            </horizontal>
+            <vertical>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>0.01</stddev>
+              </noise>
+            </vertical>
+          </position_sensing>
+        </gps>
+      </sensor>
     </link>
 
     <!-- sensors -->
@@ -50,19 +87,20 @@
       <sensor name="imu_sensor" type="imu">
         <pose>0 0 0 3.141593 0 0</pose>
         <always_on>1</always_on>
-        <update_rate>1000.0</update_rate>
+        <update_rate>600.0</update_rate>
       </sensor>
     </link>
+
     <joint name="imu_joint" type="revolute">
       <child>imu_link</child>
       <parent>base_link</parent>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+          <effort>10</effort>
+          <velocity>100</velocity>
         </limit>
         <dynamics>
           <damping>1.0</damping>
@@ -89,7 +127,7 @@
       <collision name="collision">
         <geometry>
           <cylinder>
-            <length>0.005</length>
+            <length>0.01</length>
             <radius>0.07</radius>
           </cylinder>
         </geometry>
@@ -115,11 +153,13 @@
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
-          <lower>-1e+16</lower>
-          <upper>1e+16</upper>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+          <effort>10</effort>
+          <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.004</damping>
+          <damping>1.0</damping>
         </dynamics>
       </axis>
     </joint>
@@ -141,7 +181,7 @@
       <collision name="collision">
         <geometry>
           <cylinder>
-            <length>0.005</length>
+            <length>0.01</length>
             <radius>0.07</radius>
           </cylinder>
         </geometry>
@@ -167,11 +207,13 @@
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
-          <lower>-1e+16</lower>
-          <upper>1e+16</upper>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+          <effort>10</effort>
+          <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.004</damping>
+          <damping>1.0</damping>
         </dynamics>
       </axis>
     </joint>
@@ -193,7 +235,7 @@
       <collision name="collision">
         <geometry>
           <cylinder>
-            <length>0.005</length>
+            <length>0.01</length>
             <radius>0.07</radius>
           </cylinder>
         </geometry>
@@ -219,11 +261,13 @@
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
-          <lower>-1e+16</lower>
-          <upper>1e+16</upper>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+          <effort>10</effort>
+          <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.004</damping>
+          <damping>1.0</damping>
         </dynamics>
       </axis>
     </joint>
@@ -245,7 +289,7 @@
       <collision name="collision">
         <geometry>
           <cylinder>
-            <length>0.005</length>
+            <length>0.01</length>
             <radius>0.07</radius>
           </cylinder>
         </geometry>
@@ -271,11 +315,13 @@
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
-          <lower>-1e+16</lower>
-          <upper>1e+16</upper>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+          <effort>10</effort>
+          <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.004</damping>
+          <damping>1.0</damping>
         </dynamics>
       </axis>
     </joint>
@@ -297,7 +343,7 @@
       <collision name="collision">
         <geometry>
           <cylinder>
-            <length>0.005</length>
+            <length>0.01</length>
             <radius>0.07</radius>
           </cylinder>
         </geometry>
@@ -323,11 +369,13 @@
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
-          <lower>-1e+16</lower>
-          <upper>1e+16</upper>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+          <effort>10</effort>
+          <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.004</damping>
+          <damping>1.0</damping>
         </dynamics>
       </axis>
     </joint>
@@ -349,7 +397,7 @@
       <collision name="collision">
         <geometry>
           <cylinder>
-            <length>0.005</length>
+            <length>0.01</length>
             <radius>0.07</radius>
           </cylinder>
         </geometry>
@@ -375,11 +423,13 @@
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
-          <lower>-1e+16</lower>
-          <upper>1e+16</upper>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+          <effort>10</effort>
+          <velocity>100</velocity>
         </limit>
         <dynamics>
-          <damping>0.004</damping>
+          <damping>1.0</damping>
         </dynamics>
       </axis>
     </joint>
@@ -414,7 +464,7 @@
       <control channel="0">
         <jointName>motor1_mr_joint</jointName>
         <useForce>1</useForce>
-        <multiplier>-838</multiplier>
+        <multiplier>-60000.0</multiplier>
         <offset>0</offset>
         <servo_min>1000</servo_min>
         <servo_max>2000</servo_max>
@@ -424,8 +474,8 @@
         <d_gain>0</d_gain>
         <i_max>1</i_max>
         <i_min>-1</i_min>
-        <cmd_max>5.0</cmd_max>
-        <cmd_min>-5.0</cmd_min>
+        <cmd_max>1.0</cmd_max>
+        <cmd_min>0.0</cmd_min>
       </control>
 
       <!-- 
@@ -435,7 +485,7 @@
       <control channel="1">
         <jointName>motor2_ml_joint</jointName>
         <useForce>1</useForce>
-        <multiplier>838</multiplier>
+        <multiplier>60000.0</multiplier>
         <offset>0</offset>
         <servo_min>1000</servo_min>
         <servo_max>2000</servo_max>
@@ -445,8 +495,8 @@
         <d_gain>0</d_gain>
         <i_max>1</i_max>
         <i_min>-1</i_min>
-        <cmd_max>5.0</cmd_max>
-        <cmd_min>-5.0</cmd_min>
+        <cmd_max>1.0</cmd_max>
+        <cmd_min>0.0</cmd_min>
       </control>
 
       <!-- 
@@ -456,7 +506,7 @@
       <control channel="2">
         <jointName>motor3_fl_joint</jointName>
         <useForce>1</useForce>
-        <multiplier>-838</multiplier>
+        <multiplier>-60000.0</multiplier>
         <offset>0</offset>
         <servo_min>1000</servo_min>
         <servo_max>2000</servo_max>
@@ -466,8 +516,8 @@
         <d_gain>0</d_gain>
         <i_max>1</i_max>
         <i_min>-1</i_min>
-        <cmd_max>5.0</cmd_max>
-        <cmd_min>-5.0</cmd_min>
+        <cmd_max>1.0</cmd_max>
+        <cmd_min>0.0</cmd_min>
       </control>
 
       <!-- 
@@ -477,7 +527,7 @@
       <control channel="3">
         <jointName>motor4_br_joint</jointName>
         <useForce>1</useForce>
-        <multiplier>838</multiplier>
+        <multiplier>60000.0</multiplier>
         <offset>0</offset>
         <servo_min>1000</servo_min>
         <servo_max>2000</servo_max>
@@ -487,8 +537,8 @@
         <d_gain>0</d_gain>
         <i_max>1</i_max>
         <i_min>-1</i_min>
-        <cmd_max>5.0</cmd_max>
-        <cmd_min>-5.0</cmd_min>
+        <cmd_max>1.0</cmd_max>
+        <cmd_min>0.0</cmd_min>
       </control>
 
       <!-- 
@@ -498,7 +548,7 @@
       <control channel="4">
         <jointName>motor5_fr_joint</jointName>
         <useForce>1</useForce>
-        <multiplier>838</multiplier>
+        <multiplier>60000.0</multiplier>
         <offset>0</offset>
         <servo_min>1000</servo_min>
         <servo_max>2000</servo_max>
@@ -508,8 +558,8 @@
         <d_gain>0</d_gain>
         <i_max>1</i_max>
         <i_min>-1</i_min>
-        <cmd_max>5.0</cmd_max>
-        <cmd_min>-5.0</cmd_min>
+        <cmd_max>1.0</cmd_max>
+        <cmd_min>0.0</cmd_min>
       </control>
 
       <!-- 
@@ -519,7 +569,7 @@
       <control channel="5">
         <jointName>motor6_bl_joint</jointName>
         <useForce>1</useForce>
-        <multiplier>-838</multiplier>
+        <multiplier>-60000.0</multiplier>
         <offset>0</offset>
         <servo_min>1000</servo_min>
         <servo_max>2000</servo_max>
@@ -529,8 +579,8 @@
         <d_gain>0</d_gain>
         <i_max>1</i_max>
         <i_min>-1</i_min>
-        <cmd_max>5.0</cmd_max>
-        <cmd_min>-5.0</cmd_min>
+        <cmd_max>1.0</cmd_max>
+        <cmd_min>0.0</cmd_min>
       </control>
 
       </plugin>

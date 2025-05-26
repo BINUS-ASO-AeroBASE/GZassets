@@ -1,9 +1,10 @@
 <?xml version="1.0" ?>
 <sdf version="1.7">
   <world name="runway">
+
     <physics name="1ms" type="ignored">
       <max_step_size>0.001</max_step_size>
-      <real_time_factor>1</real_time_factor>
+      <real_time_factor>1000</real_time_factor>
     </physics>
     <plugin filename="gz-sim-physics-system"
       name="gz::sim::systems::Physics">
@@ -14,8 +15,24 @@
     <plugin filename="gz-sim-scene-broadcaster-system"
       name="gz::sim::systems::SceneBroadcaster">
     </plugin>
+    
     <plugin filename="gz-sim-imu-system"
       name="gz::sim::systems::Imu">
+    </plugin>
+
+    <plugin filename="gz-sim-gps-system"
+            name="gz::sim::systems::Gps">
+      <update_rate>5</update_rate>
+    </plugin>
+
+    <plugin filename="gz-sim-magnetometer-system"
+            name="gz::sim::systems::Magnetometer">
+      <update_rate>10</update_rate>
+    </plugin>
+
+    <plugin filename="gz-sim-barometer-system"
+            name="gz::sim::systems::Barometer">
+      <update_rate>20</update_rate>
     </plugin>
 
     <scene>
@@ -38,16 +55,14 @@
       <direction>-0.5 0.1 -0.9</direction>
     </light>
 
+    <include>
+      <pose degrees="true">0 0 0.12 0 0 90</pose>
+      <uri>file:///home/aerobase/hexadrone/models/hexadrone_model</uri>
+    </include>
 
     <include>
       <pose degrees="true">-29 545 0 0 0 363</pose>
       <uri>model://runway</uri>
-    </include>
-    
-    <!-- Hexapod copter -->
-    <include>
-      <pose degrees="true">0 0 0.12 0 0 90</pose>
-      <uri>file:///home/aerobase/hexadrone/models/hexadrone_model</uri> <!-- change to relative path -->
     </include>
 
   </world>
